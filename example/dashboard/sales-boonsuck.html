@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- 데이트피커 -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/basic.css">
+    <link rel="stylesheet" href="../css/add.css">
+    <link rel="stylesheet" href="../jquery-ui/jquery-ui.css">
+
+    <!--스와이퍼-->
+    <link rel="stylesheet"href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <!--차트.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+   
+    <title>매장비서</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+</head>
+<body class="tr b1B202C" style="overflow: hidden; width:1064px; height: 820px;">
+    
+
+    <!-- 매출분석 영역 -->
+    <section class="sales-boonsuck-area dashboard-area flex fdc jcsb b1B202C">
+
+        <div>
+
+
+
+            <!-- 텝 메뉴 영역 -->
+
+            
+            <div class="tab-menu-area smalltab">
+
+
+                <div class="flex aic jcsb">
+                    <ul class="tab-name-box smalltab flex rel">
+                        
+                        <li class="tab-name-0">
+
+                            <a href="#tab0" class="block active">
+                                
+                                <div class="text f16">배달요청</div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="tab-name-1">
+
+                            <a href="#tab1" class="block">
+                                
+                                <div class="text f16">카드매출조회</div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="tab-name-2">
+
+                            <a href="#tab2" class="block">
+                                
+                                <div class="text f16">매출조회</div>
+
+
+                            </a>
+
+                        </li>
+
+                        <li class="tab-name-3">
+
+                            <a href="#tab3" class="block">
+                                
+                                <div class="text f16">매출분석</div>
+
+
+                            </a>
+
+                        </li>
+
+                        <li class="tab-name-4">
+
+                            <a href="#tab4" class="block">
+                                
+                                <div class="text f16">배달료카드결제</div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="tab-name-4">
+
+                            <a href="#tab5" class="block">
+                                
+                                <div class="text f16">월세카드결제</div>
+
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <ul class="tab-menu-box" style="overflow-x: hidden;">
+
+                    <li id="tab0">
+                        <div class="main">
+                            <img id="all_normal_dim1" src="/img/all_dim1.png" style="display:;">
+                            <img id="all_normal" src="/img/all.png" style="display:none;">
+                            <img id="all_normal_dim2" src="/img/all_dim2.png" style="display:none;">
+                        </div>
+
+                        <img id="bullun2" class="cp" src="/img/bullun_2.png" style="position: absolute; top: 570px; left: 600px; display: none;">
+                        <img id="bullun1" class="bullun" src="/img/click.png" style="position: absolute; top: 310px; left: 490px;">
+                        <div id="btn1" class="cp" style="height: 50px; width: 50px; position: absolute; top: 290px; left: 460px; opacity: 0;"></div>
+                        <img id="yochungpop" src="/img/yochungpop.png"  style="top: 710px; left: 735px; display: none;">
+                    </li>
+                    <li id="tab1">
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- //텝 메뉴 영역 -->
+
+        </div>
+
+    </section>
+    <!-- //주문앱 선정산 영역 -->
+
+
+    <!-- 제이쿼리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- js -->
+    <script src="../js/dashboard.js"></script>
+
+    <!-- 스와이퍼 -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- 데이트피커 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../jquery-ui/jquery-ui.min.js"></script>
+
+    <script>
+        const btn1 = document.querySelector("#btn1"); // 얘가 btn1 되는거임 id는 따로 매겨놨음
+
+        btn1.addEventListener("click", function() { // btn1 누르면+
+            $("#btn1").hide();
+
+            let all_normal_dim1 = document.getElementById("all_normal_dim1"); // all_normal_dim1 선언
+            if (all_normal_dim1.style.display != "none") $("#all_normal_dim1").hide();
+            setTimeout(function(){
+                $("#all_normal_dim2").show();
+            }, 2000);
+
+            let all_normal = document.getElementById("all_normal"); // all_normal 선언
+            if (all_normal.style.display == "none") $("#all_normal").show(); // 안보였으면 보이게
+
+
+            let bullun1 = document.getElementById("bullun1"); // bullun1 선언
+            if (bullun1.style.display != "none") $("#bullun1").hide(); // 보였으면 안보이게
+
+            let yochungpop = document.getElementById("yochungpop"); 
+            if (yochungpop.style.display == "none") $("#yochungpop").show();
+
+            let bullun2 = document.getElementById("bullun2"); 
+            if (bullun2.style.display == "none")
+            setTimeout(function(){
+                $("#bullun2").show();
+            }, 2000);
+
+        });
+
+        const bullun2 = document.querySelector("#bullun2"); 
+        bullun2.addEventListener("click", function() { 
+            $("#bullun2").hide();
+            $("#bullun1").show();
+            $("#all_normal_dim1").show();
+            $("#all_normal_dim2").hide();
+            $("#all_normal").hide();
+            $("#btn1").show();
+            $("#yochungpop").hide();
+        });
+
+
+    </script>
+
+    <!-- <script>
+        const btn1 = document.querySelector("#btn1"); // 얘가 btn1 되는거임 id는 따로 매겨놨음
+
+        btn1.addEventListener("click", function() { // btn1 누르면+
+            let all_normal_dim1 = document.getElementById("all_normal_dim1"); // green 선언
+            if (all_normal_dim1.style.display == "none") $("#all_normal_dim1").show(); // 안보였으면 보이게
+            else if (all_normal_dim1.style.display != "none") $("#all_normal_dim1").hide(); // 보였으면 안보이게
+
+            let all_normal = document.getElementById("all_normal"); // all_normal 선언
+            if (all_normal.style.display == "none") $("#all_normal").show(); // 안보였으면 보이게
+            else if (all_normal.style.display != "none") $("#all_normal").hide(); // 보였으면 안보이게
+
+            let bullun1 = document.getElementById("bullun1"); // all_normal 선언
+            if (bullun1.style.display == "none") $("#bullun1").show(); // 안보였으면 보이게
+            else if (bullun1.style.display != "none") $("#bullun1").hide(); // 보였으면 안보이게
+        });
+
+    </script> -->
+
+</body>
+</html>
